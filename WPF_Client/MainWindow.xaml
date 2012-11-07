@@ -1,0 +1,18 @@
+﻿<Window x:Class="WPF_Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:lib="clr-namespace:CS_PortableClass_Library;assembly=CS_PortableClass_Library"
+        Title="MainWindow" Height="486.842" Width="805.263">
+    <Window.Resources>
+        <lib:CModelProvider x:Key="vm"></lib:CModelProvider>
+    </Window.Resources>
+    <Grid DataContext="{Binding  Source={StaticResource vm}}">
+        <Button x:Name="btnLoadEmployees" Content="Load Employees" 
+                HorizontalAlignment="Left" Margin="41,45,0,0" VerticalAlignment="Top" 
+                Width="697" Height="66"
+                 Command="{Binding EmployeesCommand}"/>
+        <DataGrid x:Name="dgEmployees" HorizontalAlignment="Left"
+                  Margin="41,138,0,0" VerticalAlignment="Top" Height="277" Width="697"
+                   ItemsSource="{Binding Path=Employees}"/>
+    </Grid>
+</Window>
